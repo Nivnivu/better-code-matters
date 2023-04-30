@@ -6,7 +6,6 @@ const PostDetail = ({ post }) => {
 
     const getContentFragment = (index, text, obj, type) => {
         let modifiedText = text;
-    
         if (obj) {
           if (obj.bold) {
             modifiedText = (<b key={index}>{text}</b>);
@@ -20,10 +19,30 @@ const PostDetail = ({ post }) => {
             modifiedText = (<u key={index}>{text}</u>);
           }
         }
-    
+        
         switch (type) {
           case 'heading-three':
             return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+          case 'bulleted-list':
+            return <ul key={index} className="list-disc mb-8 pl-8">
+            {obj.children.map((listItem, i) => (
+              <li key={i}>
+              <React.Fragment key={i}><b>{listItem.children[0].children[0].children[0].text}</b>{listItem.children[0].children[0].children[1] && 
+                listItem.children[0].children[0].children[1].text
+              }</React.Fragment>
+              {console.log(listItem.children[0].children[0])}
+              </li>
+            ))}
+          </ul>
+          case 'numbered-list':
+            return <ol key={index} className="list-decimal mb-8 pl-8">
+            {obj.children.map((listItem, i) => (
+              <li key={i}>
+              <React.Fragment key={i}>{listItem.children[0].children[0].children[0].text}</React.Fragment>
+              </li>
+            ))}
+          </ol>
+
           case 'paragraph':
             return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
           case 'heading-four':
