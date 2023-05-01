@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import { getCategoris, getCategoryPost } from '../../services';
-import { PostCard, Categories } from '../../components';
+import { PostCard, Categories, Loader } from '../../components';
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
