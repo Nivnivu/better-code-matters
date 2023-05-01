@@ -38,7 +38,9 @@ const PostDetail = ({ post }) => {
             return <ol key={index} className="list-decimal mb-8 pl-8">
             {obj.children.map((listItem, i) => (
               <li key={i}>
-              <React.Fragment key={i}>{listItem.children[0].children[0].children[0].text}</React.Fragment>
+              <React.Fragment key={i}>{listItem.children[0].children[0].children[0].text}{listItem.children[0].children[0].children[1] && 
+                listItem.children[0].children[0].children[1].text
+              }</React.Fragment>
               </li>
             ))}
           </ol>
