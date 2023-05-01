@@ -9,8 +9,6 @@ export default function Home({ posts }) {
     <main className={`container mx-auto px-10 mb-8 `}>
     <Head>
       <title>Programing Blog</title>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9469506066459011"
-     crossorigin="anonymous"></script>
     </Head>
     <FeaturedPosts />
     <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
