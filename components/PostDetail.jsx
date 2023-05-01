@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment";
-import Image from 'next/image';
 
 
 const PostDetail = ({ post }) => {
@@ -31,6 +30,7 @@ const PostDetail = ({ post }) => {
               <React.Fragment key={i}><b>{listItem.children[0].children[0].children[0].text}</b>{listItem.children[0].children[0].children[1] && 
                 listItem.children[0].children[0].children[1].text
               }</React.Fragment>
+              {console.log(listItem.children[0].children[0])}
               </li>
             ))}
           </ul>
@@ -53,7 +53,7 @@ const PostDetail = ({ post }) => {
           case 'image':
             return (
             
-              <Image
+              <img
                 key={index}
                 alt={obj.title}
                 height={obj.height}
@@ -69,13 +69,13 @@ const PostDetail = ({ post }) => {
   return (
   <div className="bg-white shdow-lg rounded-lg lg:p-8 pb-12 mb-8">
     <div className="reltaive overflow-hidden shadow-md mb-6">
-        <Image src={post.feturedImage.url} alt={post.title}
+        <img src={post.feturedImage.url} alt={post.title}
         className='object-top h-full w-full rounded-t-lg' />
     </div>
     <div className="px-4 lg:px-0">
         <div className="flex items-center mb-8 w-full">
         <div className="flex items-center  mb-4 lg:mb-0 w-full lg:w-auto mr-8">
-            <Image src={post.author.photo.url} alt={post.author.name} height='30px' width='30px' className="align-middle rounded-full" />
+            <img src={post.author.photo.url} alt={post.author.name} height='30px' width='30px' className="align-middle rounded-full" />
             <p className="inline align-middle text-gray-700 ml-2 text-lg">{post.author.name}</p>
         </div>
         <div className="font-medium text-gray-700">
